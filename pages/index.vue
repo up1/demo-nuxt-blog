@@ -25,9 +25,13 @@ const blogList: Blog[] = [
 // List all blogs
 import { API_BASE_URL } from "~/constants";
 import type { BlogsResponse } from '~/lib/api/blog';
-const { data: blogList2, pending: blogList2Pending, error: blogList2Error} =
-  useFetch<BlogsResponse>(`${API_BASE_URL}/api/blogs`, {
+const { data: blogList2, pending: blogList2Pending, error: blogList2Error } =
+  useFetch<BlogsResponse>(`${API_BASE_URL}/api/bldfdfogs`, {
     method: 'GET',
+    headers: {
+      'Content-Type': 'application/json',
+      'x-mock-response-name': 'Not found',
+    },
   });
 
 </script>
@@ -42,28 +46,27 @@ const { data: blogList2, pending: blogList2Pending, error: blogList2Error} =
     <MyContainer>
       <div class="flex md:space-x-4">
         <!-- List of blogs -->
-        <div class="md:w-3/4 mr-4">
-          <p v-if="blogList2Pending">Loading blogs...</p>
-          <div v-else>
-            <p v-if="
-              blogList2 &&
-              blogList2.body &&
-              blogList2.body.length === 0
-            ">
-              No articles are here... yet.
-            </p>
+<div class="md:w-3/4 mr-4">
+  <p v-if="blogList2Pending">Loading blogs...</p>
+  <div v-else>
+    <p v-if="
+      blogList2Error &&
+      blogList2Error.statusCode === 404
+    ">
+      No blogs. 
+    </p>
 
-            <p v-if="
-              blogList2Error
-            ">
-              Error to loading blog.
-            </p>
+    <p v-else-if="
+      blogList2Error 
+    ">
+      Error... yet {{ blogList2Error }}
+    </p>
 
-            <div v-else-if="blogList2 && blogList2.body">
-              <BlogList :blogs="blogList2.body" />
-            </div>
-          </div>
-        </div>
+    <div v-else-if="blogList2 && blogList2.body">
+      <BlogList :blogs="blogList2.body" />
+    </div>
+  </div>
+</div>
         <!-- Popular tags -->
         <div class="md:w-1/4 mt-2">
           <div class="sidebar p-3 rounded bg-gray-100">
