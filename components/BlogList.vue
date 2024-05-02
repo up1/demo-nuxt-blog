@@ -1,16 +1,16 @@
 <script setup lang="ts">
 
 import { defineProps } from 'vue';
-import type { Blog } from '~/types';
+import type { BlogsResponse } from '~/lib/api/blog';
 const props = defineProps<{
-    blogs: Blog[];
+    blogs: BlogsResponse;
 }>();
 
 </script>
 
 <template>
     <div>
-        <div v-for="blog in blogs"
+        <div v-for="blog in props.blogs.body"
             :key="blog.id" 
             class="border-t border-gray-200 py-6">
             <div class="font-light mb-4">

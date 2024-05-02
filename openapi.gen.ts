@@ -21,6 +21,7 @@ export interface components {
     Blog: {
       id?: number;
       slug?: string;
+      username: string;
       title: string;
       description: string;
       tags: string[];
@@ -34,8 +35,8 @@ export interface components {
     BlogsResponse: {
       content: {
         "application/json": {
-          articles?: components["schemas"]["Blog"][];
-          articlesCount?: number;
+          body?: components["schemas"]["Blog"][];
+          blogCount?: number;
         };
       };
     };

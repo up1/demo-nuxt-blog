@@ -45,6 +45,8 @@ components:
           type: number
         slug:
           type: string
+        username:
+          type: string
         title:
           type: string
         description:
@@ -66,9 +68,9 @@ components:
           application/json:
             schema:
               properties:
-                articles:
+                body:
                   type: array
                   items:
                     $ref: '#/components/schemas/Blog'
-                articlesCount:
+                blogCount:
                   type: integer
