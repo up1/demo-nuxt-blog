@@ -28,7 +28,17 @@
 					"name": "Success",
 					"originalRequest": {
 						"method": "GET",
-						"header": []
+						"header": [],
+						"url": {
+							"raw": "{{SERVER}}/api/blogs",
+							"host": [
+								"{{SERVER}}"
+							],
+							"path": [
+								"api",
+								"blogs"
+							]
+						}
 					},
 					"status": "OK",
 					"code": 200,
@@ -37,13 +47,11 @@
 						{
 							"key": "Content-Type",
 							"value": "application/json",
-							"name": "Content-Type",
-							"description": "",
-							"type": "text"
+							"description": ""
 						}
 					],
 					"cookie": [],
-					"body": "[\n    {\n      \"id\": 1,\n      \"title\": \"Blog 1\",\n      \"description\": \"Description of blog 1\",\n      \"tags\": [\"tag 1\", \"tag 2\"],\n      \"username\": \"Somkiat Pui\",\n      \"createdDate\": \"2024/05/02\",\n      \"favoritesCount\": 100\n    },\n    {\n      \"id\": 2,\n      \"title\": \"Blog 2\",\n      \"description\": \"Description of blog 2\",\n      \"tags\": [\"tag 3\", \"tag 4\"],\n      \"username\": \"Somkiat Pui\",\n      \"createdDate\": \"2024/05/01\",\n      \"favoritesCount\": 200\n    }\n]"
+					"body": "{\n    \"blogCount\": 2,\n    \"body\": [\n        {\n        \"id\": 1,\n        \"title\": \"Mock Blog 1\",\n        \"description\": \"Description of blog 1\",\n        \"tags\": [\"tag 1\", \"tag 2\"],\n        \"username\": \"Somkiat Pui\",\n        \"createdDate\": \"2024/05/02\",\n        \"favoritesCount\": 100\n        },\n        {\n        \"id\": 2,\n        \"title\": \"Mock Blog 2\",\n        \"description\": \"Description of blog 2\",\n        \"tags\": [\"tag 3\", \"tag 4\"],\n        \"username\": \"Somkiat Pui\",\n        \"createdDate\": \"2024/05/01\",\n        \"favoritesCount\": 200\n        }\n    ]\n}"
 				},
 				{
 					"name": "Not found",
