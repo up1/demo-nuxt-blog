@@ -76,13 +76,40 @@
 						{
 							"key": "Content-Type",
 							"value": "application/json",
-							"name": "Content-Type",
-							"description": "",
-							"type": "text"
+							"description": ""
 						}
 					],
 					"cookie": [],
 					"body": "{\n    \"message\": \"Blog not found\"\n}"
+				},
+				{
+					"name": "Error",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{SERVER}}/api/blogs",
+							"host": [
+								"{{SERVER}}"
+							],
+							"path": [
+								"api",
+								"blogs"
+							]
+						}
+					},
+					"status": "Internal Server Error",
+					"code": 500,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json",
+							"description": ""
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"Error\"\n}"
 				}
 			]
 		}
