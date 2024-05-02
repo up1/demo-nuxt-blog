@@ -27,3 +27,10 @@ npx nuxi cleanup .
 ```
 npx openapi-typescript ./postman/openapi.yml -o ./openapi.gen.ts
 ```
+
+## Run with Docker
+```
+docker compose build
+docker compose up -d
+docker compose ps
+```
