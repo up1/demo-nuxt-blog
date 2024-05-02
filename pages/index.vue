@@ -26,11 +26,11 @@ const blogList: Blog[] = [
 import { API_BASE_URL } from "~/constants";
 import type { BlogsResponse } from '~/lib/api/blog';
 const { data: blogList2, pending: blogList2Pending, error: blogList2Error } =
-  useFetch<BlogsResponse>(`${API_BASE_URL}/api/bldfdfogs`, {
+  useFetch<BlogsResponse>(`${API_BASE_URL}/api/blogs`, {
     method: 'GET',
     headers: {
       'Content-Type': 'application/json',
-      'x-mock-response-name': 'Not found',
+      'x-mock-response-name': 'Success',
     },
   });
 
