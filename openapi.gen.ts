@@ -35,8 +35,8 @@ export interface components {
     BlogsResponse: {
       content: {
         "application/json": {
-          body?: components["schemas"]["Blog"][];
-          blogCount?: number;
+          body: components["schemas"]["Blog"][];
+          blogCount: number;
         };
       };
     };

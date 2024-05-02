@@ -67,6 +67,9 @@ components:
         content:
           application/json:
             schema:
+              required:
+                - body
+                - blogCount
               properties:
                 body:
                   type: array
