@@ -12,12 +12,24 @@ export interface paths {
      */
     get: operations["listAllBlogs"];
   };
+  "/users/login": {
+    /**
+     * Existing user login
+     * @description Login for existing user
+     */
+    post: operations["Login"];
+  };
 }
 
 export type webhooks = Record<string, never>;
 
 export interface components {
   schemas: {
+    LoginUser: {
+      email: string;
+      /** Format: password */
+      password: string;
+    };
     Blog: {
       id?: number;
       slug?: string;
@@ -28,6 +40,13 @@ export interface components {
       /** Format: date-time */
       createdDate: string;
       favoritesCount: number;
+    };
+    User: {
+      email: string;
+      token: string;
+      username: string;
+      bio: string;
+      image: string;
     };
   };
   responses: {
@@ -40,9 +59,23 @@ export interface components {
         };
       };
     };
+    /** @description User */
+    UserResponse: {
+      content: {
+        "application/json": {
+          user: components["schemas"]["User"];
+        };
+      };
+    };
   };
   parameters: never;
-  requestBodies: never;
+  requestBodies: {
+    LoginUserRequest: {
+      content: {
+        "application/json": components["schemas"]["LoginUser"];
+      };
+    };
+  };
   headers: never;
   pathItems: never;
 }
@@ -69,6 +102,16 @@ export interface operations {
           };
         };
       };
+    };
+  };
+  /**
+   * Existing user login
+   * @description Login for existing user
+   */
+  Login: {
+    requestBody: components["requestBodies"]["LoginUserRequest"];
+    responses: {
+      200: components["responses"]["UserResponse"];
     };
   };
 }
