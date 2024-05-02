@@ -87,7 +87,6 @@ components:
           type: integer
     User:
       required:
-        - bio
         - email
         - image
         - token
