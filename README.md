@@ -22,3 +22,8 @@ Clear cached
 ```
 npx nuxi cleanup .
 ```
+
+## Generate type from OpenAPI
+```
+npx openapi-typescript ./postman/openapi.yml -o ./openapi.gen.ts
+```

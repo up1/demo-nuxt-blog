@@ -1,9 +1,2 @@
-export interface Blog {
-    id: number;
-    title: string;
-    description: string;
-    tags: string[];
-    username: string;
-    createdDate: string;
-    favoritesCount: number;
-}
+import type { components } from '~/openapi.gen';
+export type Blog = components['schemas']['Blog'];
