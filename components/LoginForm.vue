@@ -25,11 +25,18 @@ const { handleSubmit, errors } = useForm({
 const { value: email } = useField('email');
 const { value: password } = useField('password');
 
+import { login } from '~/lib/api/auth';
+
 const onSubmit = handleSubmit(async (values) => {
     isSubmitting.value = true;
 
     try {
         // Call Login api
+        const response = await login({
+            email: values.email,
+            password: values.password,
+        });
+        console.log(response);
         // Keep logged in user in auth store
         // Redirect to home page
         await navigateTo('/');
