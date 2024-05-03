@@ -5,7 +5,7 @@ const auth = authStore();
 const route = useRoute();
 const menuItems = [
     { name: 'Home', href: '/', routeName: 'index' },
-    { name: 'New Article', href: '/editor/new', routeName: 'editor-new' },
+    { name: 'New Blog', href: '/blog/new', routeName: 'blog-new' },
     { name: 'Settings', href: '/user/settings', routeName: 'user-settings' },
     {
         name: auth.currentUser?.username,
