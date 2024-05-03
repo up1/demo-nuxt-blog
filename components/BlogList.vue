@@ -1,6 +1,4 @@
 <script setup lang="ts">
-
-import { defineProps } from 'vue';
 import type { Blog } from '~/types';
 const props = defineProps<{
     blogs: Blog[];
@@ -10,9 +8,7 @@ const props = defineProps<{
 
 <template>
     <div>
-        <div v-for="blog in props.blogs"
-            :key="blog.id" 
-            class="border-t border-gray-200 py-6">
+        <div v-for="blog in props.blogs" :key="blog.id" class="border-t border-gray-200 py-6">
             <div class="font-light mb-4">
                 <a>
                     <img src="~/assets/images/no-photo.jpeg" alt="author's profile image"
@@ -23,7 +19,7 @@ const props = defineProps<{
                     <a class="author block font-medium text-green-500">
                         <span>{{ blog.username }}</span>
                     </a>
-                    <span class="date block text-gray-400 text-xs">{{ blog.createdDate}}</span>
+                    <span class="date block text-gray-400 text-xs">{{ blog.createdDate }}</span>
                 </div>
 
                 <div class="float-right">
@@ -37,16 +33,15 @@ const props = defineProps<{
                 </h1>
 
                 <p class="font-thin text-sm text-gray-400 mb-4">
-                    {{ blog.description  }}
+                    {{ blog.description }}
                 </p>
 
                 <div class="flex justify-between items-center">
                     <span class="text-xs font-light text-gray-400">Read more...</span>
 
                     <ul class="tag-list list-none">
-                        <li v-for="tag in blog.tags"
-                        :key="tag" 
-                        class="inline-block font-light text-xs py-0 border-gray-300 text-gray-400 mr-1">
+                        <li v-for="tag in blog.tags" :key="tag"
+                            class="inline-block font-light text-xs py-0 border-gray-300 text-gray-400 mr-1">
                             <Tag :name="tag" />
                         </li>
                     </ul>
