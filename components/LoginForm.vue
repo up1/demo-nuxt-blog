@@ -26,6 +26,7 @@ const { value: email } = useField('email');
 const { value: password } = useField('password');
 
 import { login } from '~/lib/api/auth';
+import { authStore } from '~/stores/auth';
 
 const onSubmit = handleSubmit(async (values) => {
     isSubmitting.value = true;
@@ -38,6 +39,8 @@ const onSubmit = handleSubmit(async (values) => {
         });
         console.log(response);
         // Keep logged in user in auth store
+        const auth = authStore();
+        auth.signIn(response.user);
         // Redirect to home page
         await navigateTo('/');
     } catch (error) {
